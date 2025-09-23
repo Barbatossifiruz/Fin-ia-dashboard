@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
+import { useAuth } from "./context/AuthContext";
+import Dashboard from "./components/Dashboard";
+import LoginForm from "./components/LoginForm";
 
 function App() {
-    const [status, setStatus] = useState("cargando...");
+    const { user, loading } = useAuth();
 
-    useEffect(() => {
-        fetch("/api/health")
-            .then((r) => r.json())
-            .then((d) => setStatus(d.status))
-            .catch(() => setStatus("error"));
-    }, []);
+    if (loading) return <p>Cargando...</p>;
 
     return (
-        <main className="p-8 font-sans">
-            <h1 className="text-3xl font-bold mb-4">Dashboard de Ahorro con IA</h1>
-            <p className="text-lg">
-                Estado de la API: <span className="font-semibold">{status}</span>
-            </p>
-            <p className="text-sm text-gray-600 mt-2">Si ves "ok", el front ya habla con el backend ✅</p>
-        </main>
+        <div>
+            <h1>Fin-IA Dashboard</h1>
+            {user ? <Dashboard /> : <LoginForm />}
+        </div>
     );
 }
 
