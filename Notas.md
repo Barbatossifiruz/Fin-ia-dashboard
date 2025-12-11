@@ -7,15 +7,15 @@ CMD:`.venv\Scripts\activate.bat`
 
 PowerShell: `.venv\Scripts\Activate.ps1`
 
-2. Ejecutar el servidor con UvicornUna vez activado el entorno virtual, corre el siguiente comando:
-   `uvicorn app.main:app --reload --port 8000` Parámetros importantes
+Ejecutar el servidor con UvicornUna vez activado el entorno virtual, corre el siguiente comando:
+`uvicorn app.main:app --reload --port 8000` Parámetros importantes
 
 `--reload`: reinicia automáticamente el servidor al detectar cambios en el código.
 
 `--port 8000`: define el puerto en el que se ejecutará el backend.
 
-3. Conectar el frontend con el backend (`npm run dev`)
+1. Conectar el frontend con el backend (`npm run dev`)
 
-La URL base del backend será:http://localhost:8000
+La URL base del backend será:`http://localhost:8000`
 
-Los endpoints definidos en FastAPI estarán disponibles en rutas como:http://localhost:8000/tu_endpoint
+Los endpoints definidos en FastAPI estarán disponibles en rutas como:`http://localhost:8000/tu_endpoint`
